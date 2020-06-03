@@ -10,10 +10,11 @@ from sys import path as sys_path
 sys_path.insert(0, '/home/src')
 from main import build_parser as tool_buildparser
 from main import entrypoint as tool_entrypoint
-from tarfile import open as tarfile_open
-from tarfile import TarInfo as tarfile_TarInfo
+# from tarfile import open as tarfile_open
+# from tarfile import TarInfo as tarfile_TarInfo
 from tempfile import TemporaryDirectory as tempfile_tempdir
 from os import listdir as os_listdir
+from shutil import move as shutil_move
 
 
 if __name__ == "__main__":
@@ -33,9 +34,11 @@ if __name__ == "__main__":
             ]
 
         # Run the tool
-        tool_entrypoint(args)
+        outfile = tool_entrypoint(args)
 
-        # Format ouput data as expected by Galaxy
-        with tarfile_open(params.output, mode='w:xz') as tf:
-            for name in os_listdir(tmpdirname):
-                tf.add(tmpdirname+"/"+name, arcname=name)
+        shutil_move(outfile, params.output)
+
+        # # Format ouput data as expected by Galaxy
+        # with tarfile_open(params.output, mode='w:gz') as tf:
+        #     for name in os_listdir(tmpdirname):
+        #         tf.add(tmpdirname+"/"+name, arcname=name)
