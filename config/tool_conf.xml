@@ -1,0 +1,3 @@
+  <section id="sbc-rs" name="SynBioCAD RetroRules">
+    <tool file="rpTools/RetroRules/wrap.xml" />
+  </section>
