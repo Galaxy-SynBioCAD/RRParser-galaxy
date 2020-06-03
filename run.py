@@ -35,7 +35,7 @@ if __name__ == "__main__":
         # Run the tool
         tool_entrypoint(args)
 
-        # Format ouput data as expected by the wrapper
-        with tarfile_open(params.output, mode='w:gz') as tf:
+        # Format ouput data as expected by Galaxy
+        with tarfile_open(params.output, mode='w:xz') as tf:
             for name in os_listdir(tmpdirname):
                 tf.add(tmpdirname+"/"+name, arcname=name)
