@@ -43,7 +43,7 @@ if __name__ == "__main__":
         with tarfile_open(params.output, "w:gz") as tar:
             # if we do not provide arcname, archive will include full paths
             arcname = os_path.split('/')[-1]
-            tar.add(path, arcname)
+            tar.add(arcname)
             tar.close()
 
         # zip = zipf(params.output, 'w')
