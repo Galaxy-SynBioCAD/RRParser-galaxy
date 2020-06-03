@@ -16,7 +16,6 @@ from tempfile import TemporaryDirectory as tempfile_tempdir
 from os import listdir as os_listdir
 
 
-
 if __name__ == "__main__":
 
     # Parse arguments with the tool parser
@@ -29,7 +28,7 @@ if __name__ == "__main__":
         # Prepare arguments for the tool
         args = [
             '-rules_type', params.rules_type,
-            '-output', params.output,
+            '-output', tmpdirname,
             '-diameters', params.diameters
             ]
 
