@@ -40,9 +40,9 @@ if __name__ == "__main__":
 
         # shutil_move(outfile, params.output)
 
-        with tarfile_open(params.output, "w:gz") as tar:
+        with tarfile_open(params.output+'.gz', "w:gz") as tar:
             # if we do not provide arcname, archive will include full paths
-            arcname = outfile.split('/')[-1]
+            arcname = params.output+outfile.split('/')[-1]
             tar.add(outfile, arcname)
             tar.close()
 
