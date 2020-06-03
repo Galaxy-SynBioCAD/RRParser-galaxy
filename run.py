@@ -13,7 +13,7 @@ from main import entrypoint as tool_entrypoint
 from tarfile import open as tarfile_open
 # from tarfile import TarInfo as tarfile_TarInfo
 from tempfile import TemporaryDirectory as tempfile_tempdir
-# from os import path as os_path
+from os import path as os_path
 from shutil import move as shutil_move
 # from zipfile import ZipFile as zipf
 # from zipfile import ZIP_DEFLATED as ZIP_DEFLATED
@@ -41,7 +41,9 @@ if __name__ == "__main__":
         # shutil_move(outfile, params.output)
 
         with tarfile_open(params.output, "w:gz") as tar:
-            tar.add(outfile)
+            # if we do not provide arcname, archive will include full paths
+            arcname = outfile.split('/')[-1]
+            tar.add(outfile, arcname)
             tar.close()
 
         # zip = zipf(params.output, 'w')
