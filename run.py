@@ -29,7 +29,7 @@ if __name__ == "__main__":
         # Prepare arguments for the tool
         args = [
             '-rules_type', params.rules_type,
-            '-output', tmpdirname+'/'+params.output,
+            '-output', params.output,
             '-diameters', params.diameters
             ]
 
