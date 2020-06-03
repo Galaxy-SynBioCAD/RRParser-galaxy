@@ -40,17 +40,17 @@ if __name__ == "__main__":
 
         # shutil_move(outfile, params.output)
 
-        with tarfile_open(params.output+'.gz', "w:gz") as tar:
-            # if we do not provide arcname, archive will include full paths
-            arcname = params.output+'/'+outfile.split('/')[-1]
-            tar.add(outfile, arcname)
-            tar.close()
+        # with tarfile_open(params.output+'.gz', "w:gz") as tar:
+        #     # if we do not provide arcname, archive will include full paths
+        #     arcname = outfile.split('/')[-1]
+        #     tar.add(outfile, arcname)
+        #     tar.close()
 
         # zip = zipf(params.output, 'w')
         # zip.write(outfile, compress_type=ZIP_DEFLATED)
         # zip.close()
 
-        # # Format ouput data as expected by Galaxy
-        # with tarfile_open(params.output, mode='w:gz') as tf:
-        #     for name in os_listdir(tmpdirname):
-        #         tf.add(tmpdirname+"/"+name, arcname=name)
+        # Format ouput data as expected by Galaxy
+        with tarfile_open(params.output, mode='w:gz') as tf:
+            for name in os_listdir(tmpdirname):
+                tf.add(tmpdirname+"/"+name, arcname=name)
