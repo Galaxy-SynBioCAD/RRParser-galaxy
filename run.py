@@ -40,8 +40,6 @@ if __name__ == "__main__":
 
         # shutil_move(outfile, params.output)
 
-        print(outfile)
-
         zip = zipf(params.output, 'w')
         zip.write(outfile, compress_type=ZIP_DEFLATED)
         zip.close()
