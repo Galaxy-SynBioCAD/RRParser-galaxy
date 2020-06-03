@@ -51,6 +51,6 @@ if __name__ == "__main__":
         # zip.close()
 
         # Format ouput data as expected by Galaxy
-        with tarfile_open(params.output, mode='w:gz') as tf:
+        with tarfile_open(params.output+'.gz', mode='w:gz') as tf:
             for name in os_listdir(tmpdirname):
-                tf.add(tmpdirname+"/"+name, arcname=name)
+                tf.add(tmpdirname+"/"+name, arcname=params.output+'/'+name)
