@@ -15,8 +15,8 @@ from main import entrypoint as tool_entrypoint
 from tempfile import TemporaryDirectory as tempfile_tempdir
 from os import listdir as os_listdir
 from shutil import move as shutil_move
-from zipfile import ZipFile as zf
-
+from zipfile import ZipFile as zipf
+from zipfile import ZIP_DEFLATED as ZIP_DEFLATED
 
 
 if __name__ == "__main__":
@@ -40,8 +40,8 @@ if __name__ == "__main__":
 
         # shutil_move(outfile, params.output)
 
-        zip = zf(params.output, 'w')
-        zip.write(outfile, compress_type=zipfile.ZIP_DEFLATED)
+        zip = zipf(params.output, 'w')
+        zip.write(outfile, compress_type=ZIP_DEFLATED)
         zip.close()
 
         # # Format ouput data as expected by Galaxy
