@@ -13,7 +13,7 @@ from main import entrypoint as tool_entrypoint
 from tarfile import open as tarfile_open
 # from tarfile import TarInfo as tarfile_TarInfo
 from tempfile import TemporaryDirectory as tempfile_tempdir
-from os import path as os_path
+from os import listdir as os_listdir
 from shutil import move as shutil_move
 # from zipfile import ZipFile as zipf
 # from zipfile import ZIP_DEFLATED as ZIP_DEFLATED
