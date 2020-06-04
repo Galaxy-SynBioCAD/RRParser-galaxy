@@ -32,9 +32,9 @@ if __name__ == "__main__":
             ]
 
         # Run the tool
-        tool_entrypoint(args)
+        params.output = tool_entrypoint(args)
 
-        # Format ouput data as expected by Galaxy
-        with tarfile_open(params.output, mode='w:gz') as tf:
-            for name in os_listdir(tmpdirname):
-                tf.add(tmpdirname+"/"+name, arcname=name)
+        # # Format ouput data as expected by Galaxy
+        # with tarfile_open(params.output, mode='w:gz') as tf:
+        #     for name in os_listdir(tmpdirname):
+        #         tf.add(tmpdirname+"/"+name, arcname=name)
