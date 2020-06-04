@@ -35,7 +35,7 @@
     </param>
   </inputs>
   <outputs>
-    <data name="output" format="tar" label="RetroRules" >
+    <data name="output" format="csv" label="RetroRules" >
       <!-- <change_format>
         <when input="output_format" value="csv" format="csv"/>
       </change_format> -->
