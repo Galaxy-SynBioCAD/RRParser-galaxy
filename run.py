@@ -11,12 +11,8 @@ sys_path.insert(0, '/home/src')
 from main import build_parser as tool_buildparser
 from main import entrypoint as tool_entrypoint
 from tarfile import open as tarfile_open
-# from tarfile import TarInfo as tarfile_TarInfo
 from tempfile import TemporaryDirectory as tempfile_tempdir
 from os import listdir as os_listdir
-from shutil import move as shutil_move
-# from zipfile import ZipFile as zipf
-# from zipfile import ZIP_DEFLATED as ZIP_DEFLATED
 
 
 if __name__ == "__main__":
@@ -36,19 +32,7 @@ if __name__ == "__main__":
             ]
 
         # Run the tool
-        outfile = tool_entrypoint(args)
-
-        # shutil_move(outfile, params.output)
-
-        # with tarfile_open(params.output+'.gz', "w:gz") as tar:
-        #     # if we do not provide arcname, archive will include full paths
-        #     arcname = outfile.split('/')[-1]
-        #     tar.add(outfile, arcname)
-        #     tar.close()
-
-        # zip = zipf(params.output, 'w')
-        # zip.write(outfile, compress_type=ZIP_DEFLATED)
-        # zip.close()
+        tool_entrypoint(args)
 
         # Format ouput data as expected by Galaxy
         with tarfile_open(params.output, mode='w:gz') as tf:
