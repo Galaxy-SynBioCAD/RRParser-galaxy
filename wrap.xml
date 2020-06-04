@@ -45,24 +45,20 @@
 RetroRules
 ==========
 
-
-* Docker image: `brsynth/retrorules-standalone <https://hub.docker.com/r/brsynth/retrorules-standalone>`_
-
 Retrieve the reaction rules from `RetroRules <https://retrorules.org/>`_
 
 Input
 -----
 
-
-* **-rule_type**\ : (string) Valid options: retro, forward, all. Return the rules that are in reverse, forward or both direction
-* **-diamters**\ : (integer list): Valid options: 2, 4, 6, 8, 10, 12, 14, 16. The diameter of the rules to return
-* **-output_format**\ : (string) Valid options: tar, csv. Format output
+* **-rule_type**: (string) Valid options: retro, forward, all. Return the rules that are in reverse, forward or both direction
+* **-diamters**: (integer list): Valid options: 2, 4, 6, 8, 10, 12, 14, 16. The diameter of the rules to return
+* **-output_format**: (string) Valid options: tar.gz, csv. Format output
 
 Ouput
 -----
 
+* **-output**: (string): Path of the output file. Either a compressed TAR (containing a CSV) or CSV list of reaction rules that are in a RetroPath2.0 friendly format
 
-* **-output**\ : (string): Path of the output file. Either a TAR (containing a CSV) or CSV list of reaction rules that are in a RetroPath2.0 friendly format
 
 Version
 -------
@@ -83,7 +79,6 @@ This project is licensed under the MIT License - see the `LICENSE.md <LICENSE.md
 
 Acknowledgments
 ---------------
-
 
 * Joan Hérisson
 
