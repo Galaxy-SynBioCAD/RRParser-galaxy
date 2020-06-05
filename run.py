@@ -13,6 +13,7 @@ from main import entrypoint as tool_entrypoint
 from tarfile import open as tarfile_open
 from tempfile import TemporaryDirectory as tempfile_tempdir
 from os import listdir as os_listdir
+from shutil import copy as shutil_copy
 
 
 if __name__ == "__main__":
@@ -32,7 +33,10 @@ if __name__ == "__main__":
             ]
 
         # Run the tool
-        params.output = tool_entrypoint(args)
+        result = tool_entrypoint(args)
+
+        shutil_copy(result, params.output)
+
 
         # # Format ouput data as expected by Galaxy
         # with tarfile_open(params.output, mode='w:gz') as tf:
