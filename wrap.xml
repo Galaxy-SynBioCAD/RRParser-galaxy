@@ -35,7 +35,7 @@
     </param>
   </inputs>
   <outputs>
-    <data name="output" format="csv" label="${tool.name} - $rule_type" >
+    <data name="output" format="csv" label="${tool.name}-$rule_type d=$diameters" >
       <!-- <change_format>
         <when input="output_format" value="csv" format="csv"/>
       </change_format> -->
