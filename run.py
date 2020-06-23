@@ -9,7 +9,7 @@ Created on June 03 2020
 # from tarfile import open as tarfile_open
 from tempfile import TemporaryDirectory as tempfile_tempdir
 from shutil import copy as shutil_copy
-from brs_rr import RetroRules, build_parser
+from retrorules import rules, build_parser
 
 if __name__ == "__main__":
 
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     with tempfile_tempdir() as tmpdirname:
 
         # Run the tool
-        result = RetroRules(params.rules_type, tmpdirname, params.diameters)
+        result = rules(params.rules_type, tmpdirname, params.diameters)
 
         # Copy results to the place expected by Galaxy
         shutil_copy(result, params.outfile)
