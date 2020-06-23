@@ -3,7 +3,7 @@
 Created on June 03 2020
 
 @author: Joan Hérisson
-@description: Galaxy script to query rpCompletion service
+@description: Galaxy script to query RetroRules service
 
 """
 from sys import path as sys_path
