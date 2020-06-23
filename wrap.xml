@@ -1,7 +1,7 @@
 <tool id="retrorules" name="RetroRules" version="0.1">
   <description>RetroRules reaction rules</description>
   <requirements>
-    <requirement type="package">brs-rr</requirement>
+    <requirement type="package">brs_rr</requirement>
   </requirements>
   <stdio>
     <regex match="WARNING:" level="warning" />
