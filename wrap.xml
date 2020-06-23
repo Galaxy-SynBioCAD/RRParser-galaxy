@@ -11,14 +11,14 @@
     '$__tool_directory__/tool_RetroRules.py' -rule_type '$rule_type' -output '$output' -diameters '$diameters' -output_format '$output_format'
   ]]></command> -->
   <command detect_errors="exit_code"><![CDATA[
-    '$__tool_directory__/run.py' rule_type '$rule_type' -outfile '$output' -diameters '$diameters'
+    '$__tool_directory__/run.py' '$rules_type' '$output' -diameters '$diameters'
   ]]></command>
   <inputs>
     <!-- <param name="output_format" type="select" label="Output format">
       <option value="csv" selected="True">CSV</option>
       <option value="tar">TAR.GZ</option>
     </param> -->
-    <param name="rule_type" type="select" label="Rules Type">
+    <param name="rules_type" type="select" label="Rules Type">
       <option value="retro" selected="True">Retro</option>
       <option value="forward">Forward</option>
       <option value="all">All</option>
@@ -35,7 +35,7 @@
     </param>
   </inputs>
   <outputs>
-    <data name="output" format="csv" label="${tool.name}-$rule_type d=$diameters" >
+    <data name="output" format="csv" label="${tool.name}-$rules_type d=$diameters" >
       <!-- <change_format>
         <when input="output_format" value="csv" format="csv"/>
       </change_format> -->

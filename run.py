@@ -15,17 +15,16 @@ if __name__ == "__main__":
 
     # Parse arguments with the tool parser
     parser = build_parser()
-    parser.add_argument('-outfile', type=str)
-    params = parser.parse_args()
+    params = parser.parse_args(sys_argv[1:])
 
     # Process in a temporary folder that will be automatically removed after exit
     with tempfile_tempdir() as tmpdirname:
 
         # Run the tool
-        result = rules(params.rules_type, tmpdirname, params.diameters)
+        result_file = rules(params.rules_type, tmpdirname, params.diameters)
 
         # Copy results to the place expected by Galaxy
-        shutil_copy(result, params.outfile)
+        shutil_copy(result_file, params.output)
 
 
         # # Format ouput data as expected by Galaxy
