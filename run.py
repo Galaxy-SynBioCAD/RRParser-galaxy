@@ -14,7 +14,7 @@ from brs_rr import RetroRules, build_parser
 if __name__ == "__main__":
 
     # Parse arguments with the tool parser
-    parser = buildparser()
+    parser = build_parser()
     parser.add_argument('-outfile', type=str)
     params = parser.parse_args()
 
