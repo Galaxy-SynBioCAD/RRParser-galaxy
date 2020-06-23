@@ -11,7 +11,7 @@
     '$__tool_directory__/tool_RetroRules.py' -rule_type '$rule_type' -output '$output' -diameters '$diameters' -output_format '$output_format'
   ]]></command> -->
   <command detect_errors="exit_code"><![CDATA[
-    '$__tool_directory__/run.py' '$rule_type' '$output' -diameters '$diameters'
+    '$__tool_directory__/run.py' rule_type '$rule_type' -outfile '$output' -diameters '$diameters'
   ]]></command>
   <inputs>
     <!-- <param name="output_format" type="select" label="Output format">

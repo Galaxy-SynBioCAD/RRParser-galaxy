@@ -15,6 +15,7 @@ if __name__ == "__main__":
 
     # Parse arguments with the tool parser
     parser = buildparser()
+    parser.add_argument('-outfile', type=str)
     params = parser.parse_args()
 
     # Process in a temporary folder that will be automatically removed after exit
@@ -23,8 +24,8 @@ if __name__ == "__main__":
         # Run the tool
         result = RetroRules(params.rules_type, tmpdirname, params.diameters)
 
-        # Copy results to the place expected by Galaxy 
-        shutil_copy(result, params.output)
+        # Copy results to the place expected by Galaxy
+        shutil_copy(result, params.outfile)
 
 
         # # Format ouput data as expected by Galaxy
