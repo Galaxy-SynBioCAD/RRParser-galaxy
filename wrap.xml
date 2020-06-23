@@ -1,7 +1,7 @@
 <tool id="retrorules" name="RetroRules" version="0.1">
   <description>RetroRules reaction rules</description>
   <requirements>
-    <requirement type="package" version="1.0.1">retrorules</requirement>
+    <requirement type="package" version="1.0.2">retrorules</requirement>
   </requirements>
   <stdio>
     <regex match="WARNING:" level="warning" />
