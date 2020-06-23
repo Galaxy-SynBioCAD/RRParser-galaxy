@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
     # Parse arguments with the tool parser
     parser = build_parser()
-    params = parser.parse_args(sys_argv[1:])
+    params = parser.parse_args()
 
     # Process in a temporary folder that will be automatically removed after exit
     with tempfile_tempdir() as tmpdirname:
