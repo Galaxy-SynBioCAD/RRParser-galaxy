@@ -12,8 +12,8 @@
   ]]></command>
   <inputs>
     <param name="output_format" type="select" label="Output format">
-      <option value="csv" selected="True">CSV</option>
-      <option value="tar">TAR.GZ</option>
+      <option value="csv" selected="True">csv</option>
+      <option value="tar">tar.gz</option>
     </param>
     <param name="rule_type" type="select" label="Rules Type">
       <option value="retro" selected="True">Retro</option>
