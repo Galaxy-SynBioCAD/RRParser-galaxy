@@ -34,7 +34,7 @@
   <outputs>
     <data name="output" format="csv" label="${tool.name}-$rule_type d=$diameters" >
       <change_format>
-        <when input="output_format" value="tar" format="tar"/>
+        <when input="output_format" value="tar" format="tar.gz"/>
       </change_format>
     </data>
   </outputs>
