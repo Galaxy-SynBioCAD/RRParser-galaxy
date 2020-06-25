@@ -21,7 +21,7 @@ if __name__ == "__main__":
     with tempfile_tempdir() as tmpdirname:
 
         # Run the tool
-        result_file = rules(params.rules_type, tmpdirname, params.diameters)
+        result_file = rules(params.rule_type, tmpdirname, params.diameters, params.output_format)
 
         # Copy results to the place expected by Galaxy
         shutil_copy(result_file, params.output)
