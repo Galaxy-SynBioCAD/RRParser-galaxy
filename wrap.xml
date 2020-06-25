@@ -28,13 +28,13 @@
     </param>
     <param name="output_format" type="select" label="Output format">
       <option value="csv">csv</option>
-      <option value="tar.gz" selected="True">tar.gz</option>
+      <option value="tar" selected="True">tar.gz</option>
     </param>
   </inputs>
   <outputs>
     <data name="output" format="csv" label="${tool.name}-$rule_type d=$diameters" >
       <change_format>
-        <when input="output_format" value="tar.gz" format="tar.gz"/>
+        <when input="output_format" value="tar" format="tar.gz"/>
       </change_format>
     </data>
   </outputs>
