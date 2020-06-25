@@ -20,7 +20,7 @@ if __name__ == "__main__":
     # Process in a temporary folder that will be automatically removed after exit
     with tempfile_tempdir() as tmpdirname:
 
-        if params.output_format=='tar': params.output_format+='.gz'
+        if params.output_format=='tar': params.output_format += '.gz'
         # Run the tool
         result_file = rules(params.rule_type, tmpdirname, params.diameters, params.output_format)
 
