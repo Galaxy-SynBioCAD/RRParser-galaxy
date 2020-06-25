@@ -24,7 +24,7 @@ if __name__ == "__main__":
         result_file = rules(params.rule_type, tmpdirname, params.diameters, params.output_format)
 
         # Copy results to the place expected by Galaxy
-        shutil_copy(result_file, params.output)
+        shutil_copy(result_file, params.output_folder)
 
 
         # # Format ouput data as expected by Galaxy
