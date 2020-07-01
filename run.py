@@ -9,12 +9,12 @@ Created on June 03 2020
 # from tarfile import open as tarfile_open
 from tempfile import TemporaryDirectory as tempfile_tempdir
 from shutil import copy as shutil_copy
-from retrorules import rules, build_parser
+from rr_parser import RRulesParser, build_args_parser
 
 if __name__ == "__main__":
 
     # Parse arguments with the tool parser
-    parser = build_parser()
+    parser = build_args_parser()
     parser.add_argument('--output_format_galaxy',
                             type=str,
                             choices=['csv', 'tar'])
@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
         if params.output_format_galaxy=='tar': params.output_format = 'tar.gz'
         # Run the tool
-        result_file = rules(params.rule_type, tmpdirname, params.diameters, params.output_format)
+        result_file = RRulesParser().parse_rules(params.rule_type, tmpdirname, params.diameters, params.output_format)
 
         # Copy results to the place expected by Galaxy
         shutil_copy(result_file, params.output_folder)
