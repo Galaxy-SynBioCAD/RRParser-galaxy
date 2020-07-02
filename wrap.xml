@@ -1,4 +1,4 @@
-<tool id="rrparser" name="RRulesParser" version="0.1">
+<tool id="rrparser" name="RRulesParser" version="1.0.0">
   <description>Reaction Rules Parser</description>
   <requirements>
     <requirement type="package" version="1.0.0">rrparser</requirement>
