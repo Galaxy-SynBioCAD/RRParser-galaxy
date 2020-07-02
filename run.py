@@ -26,10 +26,11 @@ if __name__ == "__main__":
         if params.output_format_galaxy=='tar':
             params.output_format = 'tar.gz'
         # Run the tool
-        result_file = Parser().parse_rules(params.rule_type,
-                                           tmpdirname,
-                                           params.diameters,
-                                           params.output_format)
+        result_file = Parser().parse_rules(outdir=tmpdirname,
+                                           rules_file=params.rules_file,
+                                           rule_type=params.rule_type,
+                                           diameters=params.diameters,
+                                           output_format=params.output_format)
 
         # Copy results to the place expected by Galaxy
         shutil_copy(result_file, params.output_folder)
