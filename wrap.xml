@@ -11,7 +11,7 @@
     '$__tool_directory__/run.py' --rules_file '$rules_file' --rule_type '$rule_type' '$output' --diameters '$diameters' --output_format_galaxy '$output_format'
   ]]></command>
   <inputs>
-    <param name="rules_file" optional="True" type="data" format="csv" label="Rules File" />
+    <param name="rules_file" optional="True" type="file" format="csv" label="Rules File" />
     <param name="rule_type" optional="True" type="select" label="Rule Type">
       <option value="retro" selected="True">Retro</option>
       <option value="forward">Forward</option>
