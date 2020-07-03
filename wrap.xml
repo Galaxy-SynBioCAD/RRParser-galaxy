@@ -7,8 +7,8 @@
     <regex match="WARNING:" level="warning" />
 	  <regex match="ERROR:" level="error" />
   </stdio>
+  <!-- '$__tool_directory__/run.py' -->
   <command detect_errors="exit_code"><![CDATA[
-    <!-- '$__tool_directory__/run.py' -->
     python -m rrparser.main
     #if str($rules_file) != "None":
       --rules_file '$rules_file'
