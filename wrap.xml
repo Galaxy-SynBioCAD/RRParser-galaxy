@@ -53,7 +53,7 @@
   </outputs>
   <help><![CDATA[
 RRulesParser
-==========
+============
 
 Retrieve the reaction rules from `RetroRules <https://retrorules.org/>`_
 
