@@ -9,12 +9,15 @@
   </stdio>
   <command detect_errors="exit_code"><![CDATA[
     '$__tool_directory__/run.py'
-    --rules_file '$rules_file'
-    --rule_type '$rule_type'
+    #if str($rules_file) != "None":
+      --rules_file '$rules_file'
+    #else:
+      --rule_type '$rule_type'
+    #end if
     '$output'
     --diameters '$diameters'
     #if str($output_format) == "tar":
-      --output_format 'tar.gz'
+      --output_format "tar.gz"
     #else:
       --output_format '$output_format'
     #end if
