@@ -1,7 +1,7 @@
 <tool id="rrparser" name="RRulesParser" version="1.0.0">
   <description>Reaction Rules Parser</description>
   <requirements>
-    <requirement type="package" version="1.0.0">rrparser</requirement>
+    <requirement type="package" version="1.0.1">rrparser</requirement>
   </requirements>
   <stdio>
     <regex match="WARNING:" level="warning" />
@@ -11,8 +11,8 @@
     '$__tool_directory__/run.py' --rules_file '$rules_file' --rule_type '$rule_type' '$output' --diameters '$diameters' --output_format_galaxy '$output_format'
   ]]></command>
   <inputs>
-    <param name="rules_file" type="data" format="csv" label="Rules File" />
-    <param name="rule_type" type="select" label="Rule Type">
+    <param name="rules_file" optional="True" type="data" format="csv" label="Rules File" />
+    <param name="rule_type" optional="True" type="select" label="Rule Type">
       <option value="retro" selected="True">Retro</option>
       <option value="forward">Forward</option>
       <option value="all">All</option>
