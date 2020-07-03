@@ -8,7 +8,16 @@
 	  <regex match="ERROR:" level="error" />
   </stdio>
   <command detect_errors="exit_code"><![CDATA[
-    '$__tool_directory__/run.py' --rules_file '$rules_file' --rule_type '$rule_type' '$output' --diameters '$diameters' --output_format_galaxy '$output_format'
+    '$__tool_directory__/run.py'
+    --rules_file '$rules_file'
+    --rule_type '$rule_type'
+    '$output'
+    --diameters '$diameters'
+    #if str($output_format) == "tar":
+      --output_format 'tar.gz'
+    #else:
+      --output_format '$output_format'
+    #end if
   ]]></command>
   <inputs>
     <param name="rules_file" optional="True" type="data" format="csv" label="Rules File" />
