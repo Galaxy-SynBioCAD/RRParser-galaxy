@@ -23,8 +23,9 @@ if __name__ == "__main__":
     # Process in a temporary folder that will be automatically removed after exit
     with tempfile_tempdir() as tmpdirname:
 
-        if params.output_format_galaxy=='tar':
+        if params.output_format_galaxy == 'tar':
             params.output_format = 'tar.gz'
+
         # Run the tool
         result_file = Parser().parse_rules(outdir=tmpdirname,
                                            rules_file=params.rules_file,
