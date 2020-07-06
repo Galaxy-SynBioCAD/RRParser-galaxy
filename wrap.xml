@@ -1,7 +1,7 @@
 <tool id="rrparser" name="RRules Parser" version="1.0.0">
   <description>Reaction Rules Parser</description>
   <requirements>
-    <requirement type="package" version="1.0.3">rrparser</requirement>
+    <requirement type="package" version="1.0.5">rrparser</requirement>
   </requirements>
   <stdio>
     <regex match="WARNING:" level="warning" />
@@ -9,7 +9,7 @@
   </stdio>
   <!-- '$__tool_directory__/run.py' -->
   <command detect_errors="exit_code"><![CDATA[
-    python -m rrparser.main
+    rrparser
     #if str($rules_file) != "None":
       --rules-file '$rules_file'
     #else:
@@ -22,8 +22,6 @@
     #else:
       --output-format '$output_format'
     #end if
-    &&
-
   ]]></command>
   <inputs>
     <param name="rules_file" optional="True" type="data" format="csv" label="Rules File" />
