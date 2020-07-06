@@ -1,22 +1,26 @@
-<tool id="rrparser" name="RRulesParser" version="1.0.0">
+<tool id="rrparser" name="RRules Parser" version="1.0.0">
   <description>Reaction Rules Parser</description>
   <requirements>
-    <requirement type="package" version="1.0.1">rrparser</requirement>
+    <requirement type="package" version="1.0.9">rrparser</requirement>
   </requirements>
   <stdio>
     <regex match="WARNING:" level="warning" />
 	  <regex match="ERROR:" level="error" />
   </stdio>
+  <!-- '$__tool_directory__/run.py' -->
   <command detect_errors="exit_code"><![CDATA[
-    '$__tool_directory__/run.py'
-    --rules_file '$rules_file'
-    --rule_type '$rule_type'
-    '$output'
-    --diameters '$diameters'
-    #if str($output_format) == "tar":
-      --output_format 'tar.gz'
+    python -m rrparser
+    #if str($rules_file) != "None":
+      --rules-file '$rules_file'
     #else:
-      --output_format '$output_format'
+      --rule-type '$rule_type'
+    #end if
+    --diameters '$diameters'
+    --outfile '$output'
+    #if str($output_format) == "tar":
+      --output-format "tar.gz"
+    #else:
+      --output-format '$output_format'
     #end if
   ]]></command>
   <inputs>
@@ -50,7 +54,7 @@
   </outputs>
   <help><![CDATA[
 RRulesParser
-==========
+============
 
 Retrieve the reaction rules from `RetroRules <https://retrorules.org/>`_
 
