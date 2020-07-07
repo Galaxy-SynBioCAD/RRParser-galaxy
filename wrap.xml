@@ -1,19 +1,23 @@
 <tool id="rrparser" name="RRules Parser" version="1.0.0">
   <description>Reaction Rules Parser</description>
   <requirements>
-    <requirement type="package" version="1.1.8">rrparser</requirement>
+    <requirement type="package" version="2.0.0">rrparser</requirement>
   </requirements>
   <stdio>
     <regex match="WARNING:" level="warning" />
 	  <regex match="ERROR:" level="error" />
   </stdio>
-  <!-- '$__tool_directory__/run.py' -->
+  <!-- #if str($rules_file) != "None":
+    -rules-file '$rules_file'
+  #else:
+    -rule-type '$rule_type'
+  #end if -->
   <command detect_errors="exit_code"><![CDATA[
     python -m rrparser
-    #if str($rules_file) != "None":
-      --rules-file '$rules_file'
+    #if str($rules.type) != "other":
+      --rule-type '$rules.type'
     #else:
-      --rule-type '$rule_type'
+      --rules-file '$rules.file'
     #end if
     --diameters '$diameters'
     --outfile '$output'
@@ -24,12 +28,26 @@
     #end if
   ]]></command>
   <inputs>
-    <param name="rules_file" optional="True" type="data" format="csv" label="Rules File" />
+    <conditional name="rules">
+        <param name="type" optional="True" type="select" label="Rule Type" help="">
+          <option value="retro" selected="True">RetroRules (retro)</option>
+          <option value="forward">RetroRules (forward)</option>
+          <option value="all">RetroRules (all)</option>
+          <option value="other">Other reaction rules...</option>
+        </param>
+        <when value="other">
+            <param name="file" optional="False" type="data" format="csv" label="Rules File"/>
+        </when>
+        <when value="retro|forward|all">
+            <param name="file" optional="True" type="data" format="csv" label="Rules File"/>
+        </when>
+    </conditional>
+    <!-- <param name="rules_file" optional="True" type="data" format="csv" label="Rules File" />
     <param name="rule_type" optional="True" type="select" label="Rule Type">
       <option value="retro" selected="True">Retro</option>
       <option value="forward">Forward</option>
       <option value="all">All</option>
-    </param>
+    </param> -->
     <param name="diameters" type="select" display="checkboxes" multiple="True" label="Select the diameters of the reactions rules">
       <option selected="true" value="2">2</option>
       <option selected="true" value="4">4</option>
@@ -46,7 +64,7 @@
     </param>
   </inputs>
   <outputs>
-    <data name="output" format="csv" label="${tool.name}-$rule_type d=$diameters" >
+    <data name="output" format="csv" label="${tool.name} d=$diameters" >
       <change_format>
         <when input="output_format" value="tar" format="tar.gz"/>
       </change_format>
