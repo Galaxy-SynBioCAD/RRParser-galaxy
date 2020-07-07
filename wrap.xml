@@ -85,6 +85,7 @@ Input
 -----
 
 * **rules-file**: (string) Filename of reaction rules
+* **input-format**: (string) Valid options: csv, tsv. Format of the input file
 * **rule-type**: (string) Valid options: retro, forward, all. Return the rules that are in reverse, forward or both direction
 * **diameters**: (integer list) Valid options: 2, 4, 6, 8, 10, 12, 14, 16. The diameter of the rules to return
 * **outdir**: (string) Path where output files will be written
