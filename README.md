@@ -1,4 +1,4 @@
-# Galaxy RRulesParser wrapper
+# RRulesParser Galaxy wrapper
 
 
 <!-- ## Prerequisites
