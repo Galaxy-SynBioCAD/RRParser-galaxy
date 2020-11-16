@@ -15,19 +15,19 @@
   #end if -->
   <command detect_errors="exit_code"><![CDATA[
     python -m rrparser
-    #if str($rules.type) != "other":
-      --rule-type '$rules.type'
-    #else:
-      --rules-file '$rules.file'
+      #if str($rules.type) != "other":
+        --rules-file retrorules
+        --rule-type '$rules.type'
+      #else:
+        --rules-file '$rules.file'
+      #end if
       --input-format '$rules.format'
-    #end if
-    --diameters '$diameters'
-    --outfile '$output'
-    #if str($output_format) == "tar":
-      --output-format "tar.gz"
-    #else:
+      --diameters '$diameters'
+      --outfile '$output'
       --output-format '$output_format'
-    #end if
+      #if str($rules.compress) == "true":
+        --compress
+      #endif
   ]]></command>
   <inputs>
     <conditional name="rules">
@@ -41,7 +41,7 @@
             <param name="file" optional="False" type="data" format="csv" label="Rules File"/>
             <param name="format" optional="False" type="select" label="File format">
               <option value="csv" selected="True">csv</option>
-              <option value="tar">tsv</option>
+              <option value="tsv">tsv</option>
             </param>
       </when>
         <when value="retro|forward|all">
@@ -65,8 +65,11 @@
       <option selected="true" value="16">16</option>
     </param>
     <param name="output_format" type="select" label="Output format">
-      <option value="csv">csv</option>
-      <option value="tar" selected="True">tar.gz</option>
+      <option value="csv" selected="True">csv</option>
+      <option value="tsv">tsv</option>
+    </param>
+    <param name="compress" type="select" label="Compress output">
+      <option selected="true" value="true">tar.gz</option>
     </param>
   </inputs>
   <outputs>
