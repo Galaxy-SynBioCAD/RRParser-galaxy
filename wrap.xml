@@ -20,14 +20,14 @@
         --rule-type '$rules.type'
       #else:
         --rules-file '$rules.file'
+        --input-format '$rules.format'
       #end if
-      --input-format '$rules.format'
       --diameters '$diameters'
       --outfile '$output'
       --output-format '$output_format'
-      #if str($rules.compress) == "true":
+      #if str($compress) == "true":
         --compress
-      #endif
+      #end if
   ]]></command>
   <inputs>
     <conditional name="rules">
