@@ -16,10 +16,10 @@
   <command detect_errors="exit_code"><![CDATA[
     python -m rrparser
       #if str($rules.type) != "other":
-        --rules-file retrorules
+        retrorules
         --rule-type '$rules.type'
       #else:
-        --rules-file '$rules.file'
+        '$rules.file'
         --input-format '$rules.format'
       #end if
       --diameters '$diameters'
