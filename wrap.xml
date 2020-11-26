@@ -23,10 +23,12 @@
         --input-format '$rules.format'
       #end if
       --diameters '$diameters'
-      --outfile '$output'
       --output-format csv
       #if str($compress) == "true":
-        --compress
+        --outfile '$output'.gz ;
+        mv '$output'.gz '$output'
+      #else:
+        --outfile '$output'
       #end if
   ]]></command>
   <inputs>
@@ -73,7 +75,7 @@
   <outputs>
     <data name="output" format="csv" label="${tool.name} d=$diameters" >
       <change_format>
-        <when input="compress" value="true" format="tar.gz"/>
+        <when input="compress" value="true" format="gz"/>
       </change_format>
     </data>
   </outputs>
