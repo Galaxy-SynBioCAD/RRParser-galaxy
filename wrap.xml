@@ -73,7 +73,7 @@
     <param name="compress" type="boolean" display="checkboxes" label="Compress output" />
   </inputs>
   <outputs>
-    <data name="output" format="csv" label="${tool.name} d=$diameters" >
+    <data name="output" format="csv" label="${tool.name} - ${rules.type} - d=$diameters" >
       <change_format>
         <when input="compress" value="true" format="gz"/>
       </change_format>
